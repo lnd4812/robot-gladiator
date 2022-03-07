@@ -9,7 +9,14 @@ var enemyAttack = 12;
 
 
 var fight = function(enemyName) {
- 
+  if (playerHealth > 0) {
+    // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
+     window.alert("Welcome to Robot Gladiators! Round " + (1 + i));
+  }
+  
+  // reset enemyHealth before starting new fight:
+  enemyHealth = 50;
+
   //repeat and execute as long as the enemy-robot is alive
    while(playerHealth > 0 && enemyHealth > 0) {
       
@@ -30,7 +37,7 @@ var fight = function(enemyName) {
           break;
         }
       }
-
+      
       // remove enemy's health by subtracting the amount set in the PlayerAttack variable
       enemyHealth = enemyHealth - playerAttack;
       console.log(
@@ -57,7 +64,7 @@ var fight = function(enemyName) {
 
     // check player's health
     if (playerHealth <= 0) {
-      window.alert(playerName + " has died!");
+      window.alert("You have lost your robot in battle! Game Over!");
       break;
     } else {
       window.alert(playerName + " still has " + playerHealth + " health left.");
